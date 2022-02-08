@@ -8,9 +8,9 @@ function SignUp() {
 
   return ( 
     
-    <Container className="align-items-center d-flex" style={{height:'100vh'}}>   
-       <Form className="w-100">
-            <h1 style={{textAlign:'center'}}>Create User</h1>
+    <Container className="align-items-center d-flex" style={{height:'100vh',display:'flex',justifyContent:'center'}}>      
+       <Form >
+            <h1 style={{textAlign:'center'}}>Register User</h1>
            <Form.Group>
                <Form.Label>Username</Form.Label>
                <Form.Control type="text" ref={idRef} required />
@@ -20,17 +20,19 @@ function SignUp() {
                <Form.Control type="text" ref={idRef} required />
                <Form.Label>Password</Form.Label>
                <Form.Control type="text" ref={idRef} required />
+               <Form.Label> Confirm Password</Form.Label>
+               <Form.Control type="text" ref={idRef} required />
 
            <div style={{display:'flex',justifyContent:'center'}}>
                  
             <Link className="nav-link" to={"/sign-in"}>
-            <Button variant="success" style={{width:"25vw",margin:10}}>
+            <Button variant="success" style={{width:"25vw"}}>
                 Create User
              </Button>
             </Link>
 
             <Link className="nav-link" to={"/sign-in"}>
-                <Button style={{width:"25vw",margin:10}}>
+                <Button style={{width:"25vw"}}>
                   Login
                 </Button>
               

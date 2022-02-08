@@ -17,13 +17,13 @@ function Login() {
           
            <Form.Label>Password</Form.Label>
            <Form.Control type="text" ref={idRef} required />
-        
-           <Link className="nav-link" to={"/sign-in"}>
+          <div>
+           <Link className="nav-link" to={"/dashboard"}>
                 <Button style={{width:"25vw",justifyContent:'center'}}>
                   Login
                 </Button>
-              
               </Link>
+            </div>
        </Form.Group>
        
    </Form>

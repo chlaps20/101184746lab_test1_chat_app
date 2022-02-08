@@ -1,10 +1,10 @@
-import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Landing from './auth/Landing';
-import Login from "./auth/Login";
-import SignUp from "./auth/SignUp";
+import Landing from './components/auth/Landing';
+import Login from "./components/auth/Login";
+import SignUp from "./components/auth/SignUp";
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
             <Route exact path='/' component={Landing} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
+            <Route path="/dashboard" component={Dashboard} />
           </Switch>
         </div>
       </div>
