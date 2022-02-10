@@ -1,0 +1,35 @@
+.dash {
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+    color:black;
+    height:75vh;
+    border: 1px solid black;
+    width:50vw;
+    margin-bottom: 25px;
+}
+.chats {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    width: 12vw;
+    height: 60vh;
+    margin:10;
+}
+.chat-box {
+    display: flex;
+    border: 1px solid black;
+    width: 50vw;
+    height: 60vh;
+    flex-direction: 'row';
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid blue;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+}

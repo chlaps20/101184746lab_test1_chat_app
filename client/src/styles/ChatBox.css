@@ -1,0 +1,13 @@
+.chat-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: 'row';
+}
+
+
+
+.field{
+    display: flex;
+    align-self: end;
+    flex: 1;
+}

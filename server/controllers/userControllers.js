@@ -1,5 +1,6 @@
 const User = require('../models/UserModel')
-const asyncHandler = require('express-async-handler')
+const asyncHandler = require('express-async-handler');
+const generateToken = require('../config/generateToken');
 
 const registerUser = asyncHandler(async (req,res) => {
     const {userName,firstName,lastName,password,isAdmin} = req.body;
@@ -25,7 +26,8 @@ const registerUser = asyncHandler(async (req,res) => {
             userName:user.userName,
             firstName:user.firstName,
             lastName:user.lastName,
-            isAdmin:user.isAdmin
+            isAdmin:user.isAdmin,
+            token:generateToken(user._id)
         })
     } else {
         res.status(400)
@@ -46,17 +48,35 @@ const loginUser = asyncHandler(async (req,res) => {
             userName:user.userName,
             firstName:user.firstName,
             lastName:user.lastName,
-            isAdmin:user.isAdmin
+            isAdmin:user.isAdmin,
+            token:generateToken(user._id)
         })
+        
     } else {
             res.status(400)
             throw new Error("Invalid Email or Password")
         
     }
+    
 
+})
+
+// api/user
+const allUsers = asyncHandler (async(req,res) => {
+    const keyword = req.query
+    ? {
+        $or: [
+            {userName: {$regex:req.query.search,$options:'i'}},
+            {lastName: {$regex:req.query.search,$options:'i'}},
+        ]
+    } : {};
+    
+    
+    const users = await User.find(keyword).find({ _id :{ $ne:req.user._id }})
+    res.send(users)
 })
 
 
 
-module.exports = {registerUser,loginUser}
+module.exports = {registerUser,loginUser,allUsers}
 

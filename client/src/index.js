@@ -4,11 +4,14 @@ import { BrowserRouter} from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ChatProvider from './Context/ChatProvider';
 
 ReactDOM.render(
+  <ChatProvider>
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
+  </BrowserRouter>
+  </ChatProvider>,
   document.getElementById('root')
 );
 
